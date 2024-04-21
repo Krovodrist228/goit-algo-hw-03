@@ -1,0 +1,38 @@
+import random
+
+def get_numbers_ticket(min, max, quantity):
+   
+    while True:
+        try:
+            min = int(min)
+        except:
+            print('Enter a number: ')
+            min = input()
+            continue
+
+        try:
+            max = int(max)
+        except:
+            print('Enter a number: ')
+            max = input()
+            continue
+
+        try:
+            quantity = int(quantity)
+            break
+        except:
+            print('Enter a number: ')
+            quantity = input()
+            continue
+    
+    lst = []
+    unique = set()
+    if (min >= 1 and min <= 1000) and (max >= 1 and max <= 1000):
+        for i in range(quantity):
+            unique.add(random.randint(min, max))
+    for i in unique:
+        lst.append(i)
+    return sorted(lst)
+
+print(get_numbers_ticket(input('Enter a minimum: '), input('Enter a maximum: '), input('Enter quantity: ')))
+
